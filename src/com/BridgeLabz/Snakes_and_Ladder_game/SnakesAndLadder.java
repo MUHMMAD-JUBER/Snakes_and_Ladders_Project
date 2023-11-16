@@ -4,22 +4,23 @@ import java.util.*;
 import java.util.Random;
 public class SnakesAndLadder {
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
         Random rd = new Random();
+        int diceCount = 0;
 
 //        To initialise the position of player
-        int PLAYER1_POSITION = 0;
+        int playerPosition = 0;
 
 //        To get Random number by dice for player1
         System.out.println("WELCOME TO JUNGLE SNAKE AND LADDER !!  ");
-        while( PLAYER1_POSITION <100){
+        while( playerPosition <100){
 //            System.out.println("Press 'ENTER' to Roll the Dice !");
 //            sc.nextLine();
+            diceCount++;
 
             int diceRoll = rd.nextInt(6)+1;
             System.out.println("You got after roll the dice: " + diceRoll);
-            if(PLAYER1_POSITION + diceRoll<=100){
-                PLAYER1_POSITION = PLAYER1_POSITION + diceRoll;
+            if(playerPosition + diceRoll<=100){
+                playerPosition = playerPosition + diceRoll;
             }
 
 //            For checking case by the player
@@ -27,31 +28,32 @@ public class SnakesAndLadder {
 
             switch(number){
                 case 0:
-                    System.out.println(" In no Play condition: " + PLAYER1_POSITION + " ");
+                    System.out.println(" In no Play condition: " + playerPosition + " ");
                             break;
 //                To jump between 1 to 20
                 case 1:
                     int ladderJump = rd.nextInt(20) + 1;
-                    System.out.println(" Player1 chose to climb over up!  "+ (PLAYER1_POSITION + ladderJump) +" ");
-                    if(PLAYER1_POSITION + ladderJump<=100){
-                        PLAYER1_POSITION = PLAYER1_POSITION + ladderJump;
+                    System.out.println(" Player1 chose to climb over up!  "+ (playerPosition + ladderJump) +" ");
+                    if(playerPosition + ladderJump<=100){
+                        playerPosition = playerPosition + ladderJump;
                     }
                             break;
 //                To slide down between 1 to 20
                 case 2:
                     int snakeSlide = rd.nextInt(20) + 1;
-                    System.out.println("Player1 chose to slide down !  "+ (PLAYER1_POSITION + snakeSlide) + " ");
-                    if (PLAYER1_POSITION - snakeSlide >0){
-                        PLAYER1_POSITION = PLAYER1_POSITION - snakeSlide;
+                    System.out.println("Player1 chose to slide down !  "+ (playerPosition + snakeSlide) + " ");
+                    if (playerPosition - snakeSlide >0){
+                        playerPosition = playerPosition - snakeSlide;
                     }
                             break;
                 default:
-                    System.out.println("Invalid option No Play: " + PLAYER1_POSITION);
+                    System.out.println("Invalid option No Play: " + playerPosition);
                             break;
             }
 
         }
-        System.out.println("Congratulations Player1 won the match "+PLAYER1_POSITION);
+        System.out.println("Congratulations Player1 won the match at "+playerPosition+ " position. ");
+        System.out.println("Total dice was played " + diceCount);
 
     }
 }
