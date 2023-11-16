@@ -13,8 +13,8 @@ public class SnakesAndLadder {
 //        To get Random number by dice for player1
         System.out.println("WELCOME TO JUNGLE SNAKE AND LADDER !!");
         while( PLAYER1_POSITION < 100){
-            System.out.println("Press 'ENTER' to Roll the Dice !");
-            sc.nextLine();
+//            System.out.println("Press 'ENTER' to Roll the Dice !");
+//            sc.nextLine();
 
             int diceRoll = rd.nextInt(6)+1;
             System.out.println("You got after roll the dice: " + diceRoll);
@@ -38,17 +38,17 @@ public class SnakesAndLadder {
                 case 2:
                     int snakeSlide = rd.nextInt(20) + 1;
                     System.out.println("Player1 chose to slide down over there !"+ (PLAYER1_POSITION + snakeSlide) + " ");
-                    PLAYER1_POSITION = PLAYER1_POSITION - snakeSlide;
+                    if (PLAYER1_POSITION - snakeSlide >0){
+                        PLAYER1_POSITION = PLAYER1_POSITION - snakeSlide;
+                    }
                             break;
                 default:
                     System.out.println("Invalid option No Play: " + PLAYER1_POSITION);
                             break;
-
             }
 
-
-
         }
+        System.out.println("Congratulations Player1 won the match");
 
     }
 }
